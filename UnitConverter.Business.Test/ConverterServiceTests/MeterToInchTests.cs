@@ -3,32 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnitConverter.Business;
 using Xunit;
 
 namespace UnitConverter.Business.Test.ConverterServiceTests
 {
-    public  class MeterToCentimeterTests
+    public class MeterToInchTests
     {
         private readonly ConverterService _converterService;
 
-        public MeterToCentimeterTests()
+        public MeterToInchTests()
         {
             _converterService = new ConverterService();
         }
 
         [Theory]
-        [InlineData(1, 100)]
-        [InlineData(50, 5000)]
+        [InlineData(1, 39.37008)]
+        [InlineData(0.3, 11.811024)]
         [InlineData(0, 0)]
-        [InlineData(0.004, 0.4)]
-        public void Should_CalculateCorrectly(double input, double expected)
+        private void Should_CalculateCorrectly(double input, double expected)
         {
             // -- Arrange
 
 
             // -- Act
-            double actual = _converterService.MeterToCentimeter(input);
+            double actual = _converterService.MeterToInch(input);
 
             // -- Assert
             Assert.Equal(expected, actual);

@@ -2,7 +2,7 @@
 
 namespace UnitConverter.Business
 {
-    public class ConverterService
+    public class ConverterService //TODO make interface
     {
         public double MeterToCentimeter(double meter)
         {
@@ -26,12 +26,12 @@ namespace UnitConverter.Business
 
         public double MeterToInch(double meter)
         {
-            return meter / 39.37;
+            return meter * 39.37008;
         }
 
         public double InchToMeter(double inch)
         {
-            return inch * 39.37;
+            return inch / 39.37008;
         }
     }
 }
