@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Business", "U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Common", "UnitConverter.Common\UnitConverter.Common.csproj", "{50F080E2-7BF0-4AD7-99BF-E2D7350426A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Business.Test", "UnitConverter.Business.Test\UnitConverter.Business.Test.csproj", "{EBC5A1D5-72CA-4062-9853-41C4E0E98B73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{50F080E2-7BF0-4AD7-99BF-E2D7350426A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50F080E2-7BF0-4AD7-99BF-E2D7350426A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50F080E2-7BF0-4AD7-99BF-E2D7350426A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC5A1D5-72CA-4062-9853-41C4E0E98B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC5A1D5-72CA-4062-9853-41C4E0E98B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC5A1D5-72CA-4062-9853-41C4E0E98B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC5A1D5-72CA-4062-9853-41C4E0E98B73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
