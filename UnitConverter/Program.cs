@@ -6,13 +6,13 @@ namespace UnitConverter
 {
     internal class Program
     {
-        private readonly ConverterService converterService;
-        private readonly Logging logging;
+        private readonly ConverterService _converterService;
+        private readonly Logging _logging;
 
         public Program()
         {
-            converterService = new ConverterService();
-            logging = new Logging();
+            _converterService = new ConverterService();
+            _logging = new Logging();
         }
 
         static void Main(string[] args)
@@ -136,13 +136,13 @@ namespace UnitConverter
             {
                 Console.Clear();
                 Console.WriteLine("You did not enter a number! Please try again. \n");
-                logging.WriteToLogFile("Error: User did not enter a number!");
+                _logging.WriteToLogFile("Error: User did not enter a number!");
                 CmToM();
             }
 
-            string output = $"{converterService.CentimeterToMeter(input)} meter";
+            string output = $"{_converterService.CentimeterToMeter(input)} meter";
             Console.WriteLine(output);
-            logging.WriteToLogFile($"{input} centimeter to {output}.");
+            _logging.WriteToLogFile($"{input} centimeter to {output}.");
 
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
     "\n1. Recalculate a different number. " +
@@ -179,13 +179,13 @@ namespace UnitConverter
             {
                 Console.Clear();
                 Console.WriteLine("You did not enter a number! Please try again. \n");
-                logging.WriteToLogFile("Error: User did not enter a number!");
+                _logging.WriteToLogFile("Error: User did not enter a number!");
                 MToCm();
             }
 
-            string output = $"{converterService.MeterToCentimeter(input)} centimeter";
+            string output = $"{_converterService.MeterToCentimeter(input)} centimeter";
             Console.WriteLine(output);
-            logging.WriteToLogFile($"{input} meter to {output}.");
+            _logging.WriteToLogFile($"{input} meter to {output}.");
 
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -222,13 +222,13 @@ namespace UnitConverter
             {
                 Console.Clear();
                 Console.WriteLine("You did not enter a number! Please try again. \n");
-                logging.WriteToLogFile("Error: User did not enter a number!");
+                _logging.WriteToLogFile("Error: User did not enter a number!");
                 CmToMm();
             }
 
-            string output = $"{converterService.CentimeterToMillimeter(input)} millimeter";
+            string output = $"{_converterService.CentimeterToMillimeter(input)} millimeter";
             Console.WriteLine(output);
-            logging.WriteToLogFile($"{input} centimeters to {output}.");
+            _logging.WriteToLogFile($"{input} centimeters to {output}.");
 
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -265,13 +265,13 @@ namespace UnitConverter
             {
                 Console.Clear();
                 Console.WriteLine("You did not enter a number! Please try again. \n");
-                logging.WriteToLogFile("Error: User did not enter a number!");
+                _logging.WriteToLogFile("Error: User did not enter a number!");
                 MmToCm();
             }
 
-            string output = $"{converterService.MillimeterToCentimeter(input)} centimeter";
+            string output = $"{_converterService.MillimeterToCentimeter(input)} centimeter";
             Console.WriteLine(output);
-            logging.WriteToLogFile($"{input} millimeter to {output}.");
+            _logging.WriteToLogFile($"{input} millimeter to {output}.");
 
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -308,13 +308,13 @@ namespace UnitConverter
             {
                 Console.Clear();
                 Console.WriteLine("You did not enter a number! Please try again. \n");
-                logging.WriteToLogFile("Error: User did not enter a number!");
+                _logging.WriteToLogFile("Error: User did not enter a number!");
                 MToIn();
             }
 
-            string output = $"{converterService.MeterToInch(input)} inch";
+            string output = $"{_converterService.MeterToInch(input)} inch";
             Console.WriteLine(output);
-            logging.WriteToLogFile($"{input} meter to {output}.");
+            _logging.WriteToLogFile($"{input} meter to {output}.");
 
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -351,13 +351,13 @@ namespace UnitConverter
             {
                 Console.Clear();
                 Console.WriteLine("You did not enter a number! Please try again. \n");
-                logging.WriteToLogFile("Error: User did not enter a number!");
+                _logging.WriteToLogFile("Error: User did not enter a number!");
                 InToM();
             }
 
-            string output = $"{converterService.InchToMeter(input)} meter";
+            string output = $"{_converterService.InchToMeter(input)} meter";
             Console.WriteLine(output);
-            logging.WriteToLogFile($"{input} inches to {output}.");
+            _logging.WriteToLogFile($"{input} inches to {output}.");
 
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
