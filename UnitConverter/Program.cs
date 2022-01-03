@@ -41,7 +41,7 @@ namespace UnitConverter
             {
                 Console.Clear();
 
-                if (input == 1)
+                if (input == 1) //TODO change this to a switch statement cause dear god
                 {
                     MToCm();
                 }

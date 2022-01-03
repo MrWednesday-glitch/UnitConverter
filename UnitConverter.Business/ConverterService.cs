@@ -1,8 +1,9 @@
 ﻿using System;
+using UnitConverter.Domain.Interfaces;
 
 namespace UnitConverter.Business
 {
-    public class ConverterService //TODO make interface
+    public class ConverterService : IConverterService 
     {
         public double MeterToCentimeter(double meter)
         {
