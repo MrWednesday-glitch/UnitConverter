@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitConverter.Common", "Uni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitConverter.Business.Test", "UnitConverter.Business.Test\UnitConverter.Business.Test.csproj", "{EBC5A1D5-72CA-4062-9853-41C4E0E98B73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Domain", "UnitConverter.Domain\UnitConverter.Domain.csproj", "{0D4A931D-8626-47FD-B54E-93AED3BE53FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitConverter.Domain", "UnitConverter.Domain\UnitConverter.Domain.csproj", "{0D4A931D-8626-47FD-B54E-93AED3BE53FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.Winforms", "UnitConverter.Winforms\UnitConverter.Winforms.csproj", "{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0D4A931D-8626-47FD-B54E-93AED3BE53FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D4A931D-8626-47FD-B54E-93AED3BE53FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D4A931D-8626-47FD-B54E-93AED3BE53FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
