@@ -73,7 +73,7 @@ namespace UnitConverter
                 {
                     Console.Clear();
                     Console.WriteLine("Please enter a correct number! " +
-                        "\nPress any key to return to the main menu.");
+                        "\nPress any key to return to the main menu."); //TODO Add a call to the logging, and turn this message into the log
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -81,7 +81,7 @@ namespace UnitConverter
             else
             {
                 Console.Clear();
-                Console.WriteLine("Please enter a correct number! " +
+                Console.WriteLine("Please enter a correct number! " + //TODO Add a call to the logging, and turn this message into the log
                     "\nPress any key to return to the main menu.");
                 Console.ReadKey();
                 Console.Clear();
