@@ -23,7 +23,30 @@ namespace UnitConverter.Winforms.Subforms
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.DialogResult = DialogResult.Cancel;
+        }
+
+        private void label_Output_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_Reset_Click(object sender, EventArgs e)
+        {
+            textBox_Input.Clear();
+            label_Output.Text = "0";
+        }
+
+        private void button_Convert_Click(object sender, EventArgs e)
+        {
+            double.TryParse(textBox_Input.Text, out double input);
+            double output = _converterService.MeterToCentimeter(input);
+            label_Output.Text = output.ToString();
+        }
+
+        private void MeterToCentimeter_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
