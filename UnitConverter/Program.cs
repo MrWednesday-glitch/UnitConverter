@@ -73,7 +73,7 @@ namespace UnitConverter
                 {
                     Console.Clear();
                     Console.WriteLine("Please enter a correct number! " +
-                        "\nPress any key to return to the main menu.");
+                        "\nPress any key to return to the main menu."); //TODO Add a call to the logging, and turn this message into the log
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -81,50 +81,11 @@ namespace UnitConverter
             else
             {
                 Console.Clear();
-                Console.WriteLine("Please enter a correct number! " +
+                Console.WriteLine("Please enter a correct number! " + //TODO Add a call to the logging, and turn this message into the log
                     "\nPress any key to return to the main menu.");
                 Console.ReadKey();
                 Console.Clear();
             }
-
-            //Console.Clear();
-
-            //if (input == 1)
-            //{
-            //    MToCm();
-            //}
-            //else if (input == 2)
-            //{
-            //    CmToM();
-            //}
-            //else if (input == 3)
-            //{
-            //    CmToMm();
-            //}
-            //else if (input == 4)
-            //{
-            //    MmToCm();
-            //}
-            //else if (input == 5)
-            //{
-            //    MToIn();
-            //}
-            //else if (input == 6)
-            //{
-            //    InToM();
-            //}
-            //else if (input == 7)
-            //{
-            //    Environment.Exit(0);
-            //}
-            //else
-            //{
-            //    Console.Clear();
-            //    Console.WriteLine("Please enter a correct input! " +
-            //        "\nPress any key to return to the main menu.");
-            //    Console.ReadKey();
-            //    Console.Clear();
-            //}
         }
 
         void CmToM()
