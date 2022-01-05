@@ -41,7 +41,7 @@
             // button_Exit
             // 
             this.button_Exit.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_Exit.Location = new System.Drawing.Point(296, 206);
+            this.button_Exit.Location = new System.Drawing.Point(269, 206);
             this.button_Exit.Name = "button_Exit";
             this.button_Exit.Size = new System.Drawing.Size(84, 53);
             this.button_Exit.TabIndex = 0;
@@ -82,11 +82,11 @@
             // 
             // label_Output
             // 
-            this.label_Output.AutoSize = true;
             this.label_Output.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label_Output.Location = new System.Drawing.Point(223, 146);
+            this.label_Output.Location = new System.Drawing.Point(221, 146);
             this.label_Output.Name = "label_Output";
-            this.label_Output.Size = new System.Drawing.Size(0, 18);
+            this.label_Output.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label_Output.Size = new System.Drawing.Size(159, 18);
             this.label_Output.TabIndex = 4;
             this.label_Output.Text = "0";
             this.label_Output.Click += new System.EventHandler(this.label_Output_Click);
@@ -96,6 +96,8 @@
             this.textBox_Input.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox_Input.Location = new System.Drawing.Point(223, 82);
             this.textBox_Input.Name = "textBox_Input";
+            this.textBox_Input.PlaceholderText = "0";
+            this.textBox_Input.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBox_Input.Size = new System.Drawing.Size(157, 26);
             this.textBox_Input.TabIndex = 5;
             // 
@@ -113,7 +115,7 @@
             // button_Convert
             // 
             this.button_Convert.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_Convert.Location = new System.Drawing.Point(12, 206);
+            this.button_Convert.Location = new System.Drawing.Point(36, 206);
             this.button_Convert.Name = "button_Convert";
             this.button_Convert.Size = new System.Drawing.Size(84, 53);
             this.button_Convert.TabIndex = 7;

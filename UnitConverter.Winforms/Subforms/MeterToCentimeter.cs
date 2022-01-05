@@ -29,7 +29,7 @@ namespace UnitConverter.Winforms.Subforms
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void label_Output_Click(object sender, EventArgs e)
+        private void label_Output_Click(object sender, EventArgs e) //TODO Have the label line out to the right
         {
 
         }
@@ -42,7 +42,7 @@ namespace UnitConverter.Winforms.Subforms
 
         private void button_Convert_Click(object sender, EventArgs e)
         {
-            bool success = double.TryParse(textBox_Input.Text, out double input); //TODO have an error message if it does not work
+            bool success = double.TryParse(textBox_Input.Text, out double input); 
             if (!success)
             {
                 string errorMessage = "You did not enter a valid number, please try again.";
