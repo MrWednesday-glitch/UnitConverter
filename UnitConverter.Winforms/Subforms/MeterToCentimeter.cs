@@ -29,7 +29,7 @@ namespace UnitConverter.Winforms.Subforms
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void label_Output_Click(object sender, EventArgs e) //TODO Have the label line out to the right
+        private void label_Output_Click(object sender, EventArgs e) 
         {
 
         }
@@ -52,6 +52,15 @@ namespace UnitConverter.Winforms.Subforms
             double output = _converterService.MeterToCentimeter(input);
             label_Output.Text = output.ToString();
         }
+
+        //private void TextBoxKeyUp(object sender, KeyEventArgs e) //TODO Find a way to make the enter key automatically hit the button convert click
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+
+        //        e.Handled = true;
+        //    }
+        //}
 
         private void MeterToCentimeter_Load(object sender, EventArgs e)
         {
