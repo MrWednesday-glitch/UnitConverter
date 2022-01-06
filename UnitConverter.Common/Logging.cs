@@ -26,8 +26,8 @@ namespace UnitConverter.Common
                 string sDay = DateTime.Now.Day.ToString();
                 sTime = sYear + sMonth + sDay;
 
-                string sPathName = @"C:\Users\itvadmin\source\repos\UnitConverter\Log" + sTime;
-                StreamWriter sw = new StreamWriter(sPathName + ".txt", true);
+                string sPathName = @"C:\Users\itvadmin\Documents\programma's\Log" + sTime;
+                StreamWriter sw = new(sPathName + ".txt", true);
                 sw.WriteLine(sLogFormat + sMsg);
                 sw.Flush();
                 sw.Close();

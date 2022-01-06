@@ -8,6 +8,8 @@ namespace UnitConverter
     {
         private readonly ConverterService _converterService;
         private readonly Logging _logging;
+        private string _errorMsgUserInput = "Error: Input was not recognized, please enter a correct number! ";
+        private string _errorMsgNoValidnumber = "Error: You did not enter a valid number to be converted. Please try again.";
 
         public Program()
         {
@@ -41,47 +43,44 @@ namespace UnitConverter
             {
                 Console.Clear();
 
-                if (input == 1) //TODO change this to a switch statement cause dear god
+                switch (input)
                 {
-                    MToCm();
-                }
-                else if (input == 2)
-                {
-                    CmToM();
-                }
-                else if (input == 3)
-                {
-                    CmToMm();
-                }
-                else if (input == 4)
-                {
-                    MmToCm();
-                }
-                else if (input == 5)
-                {
-                    MToIn();
-                }
-                else if (input == 6)
-                {
-                    InToM();
-                }
-                else if (input == 7)
-                {
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Please enter a correct number! " +
-                        "\nPress any key to return to the main menu."); //TODO Add a call to the logging, and turn this message into the log
-                    Console.ReadKey();
-                    Console.Clear();
+                    case 1:
+                        MToCm();
+                        break;
+                    case 2:
+                        CmToM();
+                        break;
+                    case 3:
+                        CmToMm();
+                        break;
+                    case 4:
+                        MmToCm();
+                        break;
+                    case 5:
+                        MToIn();
+                        break;
+                    case 6:
+                        InToM();
+                        break;
+                    case 7:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.Clear();
+                        _logging.WriteToLogFile(_errorMsgUserInput);
+                        Console.WriteLine(_errorMsgUserInput +
+                            "\nPress any key to return to the main menu."); //TODO Add a call to the logging, and turn this message into the log
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
                 }
             }
             else
             {
                 Console.Clear();
-                Console.WriteLine("Please enter a correct number! " + //TODO Add a call to the logging, and turn this message into the log
+                _logging.WriteToLogFile(_errorMsgUserInput);
+                Console.WriteLine(_errorMsgUserInput + //TODO Add a call to the logging, and turn this message into the log
                     "\nPress any key to return to the main menu.");
                 Console.ReadKey();
                 Console.Clear();
@@ -96,8 +95,8 @@ namespace UnitConverter
             if (!success)
             {
                 Console.Clear();
-                Console.WriteLine("You did not enter a number! Please try again. \n");
-                _logging.WriteToLogFile("Error: User did not enter a number!");
+                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
+                _logging.WriteToLogFile(_errorMsgNoValidnumber);
                 CmToM();
             }
 
@@ -139,8 +138,8 @@ namespace UnitConverter
             if (!success)
             {
                 Console.Clear();
-                Console.WriteLine("You did not enter a number! Please try again. \n");
-                _logging.WriteToLogFile("Error: User did not enter a number!");
+                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
+                _logging.WriteToLogFile(_errorMsgNoValidnumber);
                 MToCm();
             }
 
@@ -182,8 +181,8 @@ namespace UnitConverter
             if (!success)
             {
                 Console.Clear();
-                Console.WriteLine("You did not enter a number! Please try again. \n");
-                _logging.WriteToLogFile("Error: User did not enter a number!");
+                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
+                _logging.WriteToLogFile(_errorMsgNoValidnumber);
                 CmToMm();
             }
 
@@ -225,8 +224,8 @@ namespace UnitConverter
             if (!success)
             {
                 Console.Clear();
-                Console.WriteLine("You did not enter a number! Please try again. \n");
-                _logging.WriteToLogFile("Error: User did not enter a number!");
+                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
+                _logging.WriteToLogFile(_errorMsgNoValidnumber);
                 MmToCm();
             }
 
@@ -268,8 +267,8 @@ namespace UnitConverter
             if (!success)
             {
                 Console.Clear();
-                Console.WriteLine("You did not enter a number! Please try again. \n");
-                _logging.WriteToLogFile("Error: User did not enter a number!");
+                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
+                _logging.WriteToLogFile(_errorMsgNoValidnumber);
                 MToIn();
             }
 
@@ -311,8 +310,8 @@ namespace UnitConverter
             if (!success)
             {
                 Console.Clear();
-                Console.WriteLine("You did not enter a number! Please try again. \n");
-                _logging.WriteToLogFile("Error: User did not enter a number!");
+                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
+                _logging.WriteToLogFile(_errorMsgNoValidnumber);
                 InToM();
             }
 
