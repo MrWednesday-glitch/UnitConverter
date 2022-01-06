@@ -4,7 +4,7 @@ using UnitConverter.Business;
 using UnitConverter.Common;
 
 namespace UnitConverter.Winforms
-{//TODO make 5 more subforms for the other buttons
+{
     public partial class Overview : Form
     {
         private readonly ConverterService _converterService;
