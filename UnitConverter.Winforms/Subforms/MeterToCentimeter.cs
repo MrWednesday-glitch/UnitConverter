@@ -45,7 +45,7 @@ namespace UnitConverter.Winforms.Subforms
             bool success = double.TryParse(textBox_Input.Text, out double input); 
             if (!success)
             {
-                string errorMessage = "You did not enter a valid number, please try again.";
+                string errorMessage = "Error: You did not enter a valid number, please try again.";
                 _logging.WriteToLogFile(errorMessage);
                 MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
