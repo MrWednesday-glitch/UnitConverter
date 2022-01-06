@@ -34,18 +34,8 @@ namespace UnitConverter.Common
             }
             catch (Exception ex)
             {
-                WriteToEventLog("MySite", "Logging.WriteToLogFile", "Error: " + ex.ToString(), EventLogEntryType.Error);
+                Console.WriteLine(ex);
             }
-        }
-
-        public void WriteToEventLog(string sLog, string sSource, string message, EventLogEntryType level)
-        {
-            if (!EventLog.SourceExists(sSource))
-            {
-                EventLog.CreateEventSource(sSource, sLog);
-            }
-
-            EventLog.WriteEntry(sSource, message, level);
         }
 
         #endregion
