@@ -70,7 +70,7 @@ namespace UnitConverter
                         Console.Clear();
                         _logging.WriteToLogFile(_errorMsgUserInput);
                         Console.WriteLine(_errorMsgUserInput +
-                            "\nPress any key to return to the main menu."); //TODO Add a call to the logging, and turn this message into the log
+                            "\nPress any key to return to the main menu."); 
                         Console.ReadKey();
                         Console.Clear();
                         break;
@@ -80,7 +80,7 @@ namespace UnitConverter
             {
                 Console.Clear();
                 _logging.WriteToLogFile(_errorMsgUserInput);
-                Console.WriteLine(_errorMsgUserInput + //TODO Add a call to the logging, and turn this message into the log
+                Console.WriteLine(_errorMsgUserInput + 
                     "\nPress any key to return to the main menu.");
                 Console.ReadKey();
                 Console.Clear();

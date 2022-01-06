@@ -20,6 +20,7 @@ namespace UnitConverter.Business.Test.ConverterServiceTests
         [InlineData(100, 1)]
         [InlineData(5.36, 0.0536)]
         [InlineData(0, 0)]
+        [InlineData(-8, 0.08)]
         public void Should_CalculateCorrectly(double input, double expected)
         {
             // -- Arrange
