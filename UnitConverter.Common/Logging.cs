@@ -4,7 +4,7 @@ using System.IO;
 
 namespace UnitConverter.Common
 {
-    public class Logging
+    public class LoggingService
     {
         #region "Variables"
 

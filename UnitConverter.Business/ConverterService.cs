@@ -1,17 +1,16 @@
 ﻿using System;
-using UnitConverter.Common;
 using UnitConverter.Domain.Interfaces;
 
 namespace UnitConverter.Business
 {
     public class ConverterService : IConverterService 
     {
-        private readonly Logging _logging;
+        private readonly LogginService _logging;
         private string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
 
         public ConverterService()
         {
-            _logging = new Logging();
+            _logging = new LogginService();
         }
 
         public double MeterToCentimeter(double meter)

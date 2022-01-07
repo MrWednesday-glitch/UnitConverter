@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UnitConverter.Common\UnitConverter.Common.csproj" />
     <ProjectReference Include="..\UnitConverter.Domain\UnitConverter.Domain.csproj" />
   </ItemGroup>
 

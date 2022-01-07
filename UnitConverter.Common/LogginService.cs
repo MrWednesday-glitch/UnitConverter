@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace UnitConverter.Common
 {
-    public class LoggingToDatabase
+    public class LogginService
     {
         #region "Variables"
 
@@ -20,7 +20,7 @@ namespace UnitConverter.Common
 
         #endregion
 
-        public LoggingToDatabase()
+        public LogginService()
         {
             _connection = new SqlConnection(_connectionstring);
         }

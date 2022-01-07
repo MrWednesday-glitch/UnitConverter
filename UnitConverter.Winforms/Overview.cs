@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Windows.Forms;
 using UnitConverter.Business;
-using UnitConverter.Common;
 
 namespace UnitConverter.Winforms
 {
     public partial class Overview : Form
     {
         private readonly ConverterService _converterService;
-        private readonly LoggingToDatabase _logging;
+        private readonly LogginService _logging;
 
         public Overview()
         {
             InitializeComponent();
             _converterService = new ConverterService();
-            _logging = new LoggingToDatabase();
+            _logging = new LogginService();
         }
 
         private void button_MeterToCentimeter_Click(object sender, EventArgs e)
