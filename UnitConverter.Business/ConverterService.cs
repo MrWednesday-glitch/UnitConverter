@@ -6,7 +6,7 @@ namespace UnitConverter.Business
     public class ConverterService : IConverterService 
     {
         private readonly LoggingService _logging;
-        private readonly string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
+        private const string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
 
         public ConverterService()
         {
