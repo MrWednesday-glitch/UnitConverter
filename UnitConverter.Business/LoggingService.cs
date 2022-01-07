@@ -5,12 +5,12 @@ using UnitConverter.Domain.Interfaces;
 
 namespace UnitConverter.Business
 {
-    public class LogginService : ILoggingService
+    public class LoggingService : ILoggingService
     {
         private const string _connectionstring = @""; //Pretend that there is a dbo connection here
-        private SqlConnection _connection;
+        private readonly SqlConnection _connection;
 
-        public LogginService()
+        public LoggingService()
         {
             _connection = new SqlConnection(_connectionstring);
         }

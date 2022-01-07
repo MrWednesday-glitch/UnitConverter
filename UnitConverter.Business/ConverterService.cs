@@ -5,12 +5,12 @@ namespace UnitConverter.Business
 {
     public class ConverterService : IConverterService 
     {
-        private readonly LogginService _logging;
-        private string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
+        private readonly LoggingService _logging;
+        private readonly string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
 
         public ConverterService()
         {
-            _logging = new LogginService();
+            _logging = new LoggingService();
         }
 
         public double MeterToCentimeter(double meter)

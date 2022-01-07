@@ -7,13 +7,13 @@ namespace UnitConverter.Winforms
     public partial class Overview : Form
     {
         private readonly ConverterService _converterService;
-        private readonly LogginService _logging;
+        private readonly LoggingService _logging;
 
         public Overview()
         {
             InitializeComponent();
             _converterService = new ConverterService();
-            _logging = new LogginService();
+            _logging = new LoggingService();
         }
 
         private void button_MeterToCentimeter_Click(object sender, EventArgs e)
