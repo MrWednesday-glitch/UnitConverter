@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitConverter.Domain", "Uni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitConverter.Winforms", "UnitConverter.Winforms\UnitConverter.Winforms.csproj", "{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitConverter.WPF", "UnitConverter.WPF\UnitConverter.WPF.csproj", "{845A7AB1-807E-41D0-98E6-76041C33E27D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF21C444-7BBC-4019-8D3D-EFF6FB4E8508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845A7AB1-807E-41D0-98E6-76041C33E27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845A7AB1-807E-41D0-98E6-76041C33E27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845A7AB1-807E-41D0-98E6-76041C33E27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845A7AB1-807E-41D0-98E6-76041C33E27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

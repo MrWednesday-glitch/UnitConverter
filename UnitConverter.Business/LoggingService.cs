@@ -69,5 +69,10 @@ namespace UnitConverter.Business
                 Console.WriteLine(ex);
             }
         }
+
+        internal void WriteToLogFile(object errorMsgNegaNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
