@@ -254,7 +254,7 @@ namespace UnitConverter
 "\n1. Recalculate a different number. " +
 "\n2. Return to Main Menu. " +
 "\n3. Kill this program.");
-           bool success =  int.TryParse(Console.ReadLine(), out int input);
+            bool success = int.TryParse(Console.ReadLine(), out int input);
             if (success)
             {
                 if (input == 1)

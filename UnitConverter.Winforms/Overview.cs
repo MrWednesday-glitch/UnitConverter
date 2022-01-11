@@ -16,15 +16,33 @@ namespace UnitConverter.Winforms
             _logging = new LoggingService();
         }
 
+        void NoValidNumberError()
+        {
+            string errorMsgNoValidNumber = "Error: You did not enter a valid number, please try again.";
+            _logging.WriteToDatabase(errorMsgNoValidNumber);
+            MessageBox.Show(errorMsgNoValidNumber, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        void NegativeNumberError()
+        {
+            string errorNegativeNumber = "Error: You entered a negative number, please try again.";
+            _logging.WriteToDatabase(errorNegativeNumber);
+            MessageBox.Show(errorNegativeNumber, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         private void button_MeterToCentimeter_Click(object sender, EventArgs e)
         {
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
             {
-                string errorMessage = "Error: You did not enter a valid number, please try again.";
-                _logging.WriteToDatabase(errorMessage);
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoValidNumberError();
             }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
+            }
+
             double output = _converterService.MeterToCentimeter(input);
             _logging.WriteToDatabase($"{input} meter to {output}.");
             label_Output.Text = output.ToString();
@@ -48,10 +66,14 @@ namespace UnitConverter.Winforms
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
             {
-                string errorMessage = "Error: You did not enter a valid number, please try again.";
-                _logging.WriteToDatabase(errorMessage);
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoValidNumberError();
             }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
+            }
+
             double output = _converterService.CentimeterToMeter(input);
             _logging.WriteToDatabase($"{input} centimeter to {output}.");
             label_Output.Text = output.ToString();
@@ -64,10 +86,14 @@ namespace UnitConverter.Winforms
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
             {
-                string errorMessage = "Error: You did not enter a valid number, please try again.";
-                _logging.WriteToDatabase(errorMessage);
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoValidNumberError();
             }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
+            }
+
             double output = _converterService.CentimeterToMillimeter(input);
             _logging.WriteToDatabase($"{input} centimeter to {output}.");
             label_Output.Text = output.ToString();
@@ -80,10 +106,14 @@ namespace UnitConverter.Winforms
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
             {
-                string errorMessage = "Error: You did not enter a valid number, please try again.";
-                _logging.WriteToDatabase(errorMessage);
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoValidNumberError();
             }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
+            }
+
             double output = _converterService.MillimeterToCentimeter(input);
             _logging.WriteToDatabase($"{input} millimeter to {output}.");
             label_Output.Text = output.ToString();
@@ -96,10 +126,14 @@ namespace UnitConverter.Winforms
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
             {
-                string errorMessage = "Error: You did not enter a valid number, please try again.";
-                _logging.WriteToDatabase(errorMessage);
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoValidNumberError();
             }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
+            }
+
             double output = _converterService.MeterToInch(input);
             _logging.WriteToDatabase($"{input} meter to {output}.");
             label_Output.Text = output.ToString();
@@ -112,10 +146,14 @@ namespace UnitConverter.Winforms
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
             {
-                string errorMessage = "Error: You did not enter a valid number, please try again.";
-                _logging.WriteToDatabase(errorMessage);
-                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NoValidNumberError();
             }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
+            }
+
             double output = _converterService.InchToMeter(input);
             _logging.WriteToDatabase($"{input} inch to {output}.");
             label_Output.Text = output.ToString();
