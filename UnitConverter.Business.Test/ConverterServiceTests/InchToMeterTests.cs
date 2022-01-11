@@ -20,7 +20,6 @@ namespace UnitConverter.Business.Test.ConverterServiceTests
         [InlineData(40, 1.015999967488001)] //TODO find a way to cap the decimals at a certain place or something
         [InlineData(2.25, 0.057149998171200055)]
         [InlineData(0, 0)]
-        [InlineData(-40, 1.015999967488001)]
         public void Should_CalculateCorrectly(double input, double expected)
         {
             // -- Arrange
