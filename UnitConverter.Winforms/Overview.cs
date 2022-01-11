@@ -18,16 +18,16 @@ namespace UnitConverter.Winforms
 
         void NoValidNumberError()
         {
-            string errorMsgNoValidNumber = "Error: You did not enter a valid number, please try again.";
-            _logging.WriteToDatabase(errorMsgNoValidNumber);
-            MessageBox.Show(errorMsgNoValidNumber, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string errorMessage = "Error: You did not enter a valid number, please try again.";
+            _logging.WriteToDatabase(errorMessage);
+            MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         void NegativeNumberError()
         {
-            string errorNegativeNumber = "Error: You entered a negative number, please try again.";
-            _logging.WriteToDatabase(errorNegativeNumber);
-            MessageBox.Show(errorNegativeNumber, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string errorMessage = "Error: You entered a negative number, please try again.";
+            _logging.WriteToDatabase(errorMessage);
+            MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void button_MeterToCentimeter_Click(object sender, EventArgs e)

@@ -33,16 +33,16 @@ namespace UnitConverter.WPF
 
         void NoValidNumberError()
         {
-            string errorMsgNoValidNumber = "Error: You did not enter a valid number, please try again.";
-            _loggingService.WriteToDatabase(errorMsgNoValidNumber);
-            MessageBox.Show(errorMsgNoValidNumber, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            string errorMessage = "Error: You did not enter a valid number, please try again.";
+            _loggingService.WriteToDatabase(errorMessage);
+            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         void NegativeNumberError()
         {
-            string errorNegativeNumber = "Error: You entered a negative number, please try again.";
-            _loggingService.WriteToDatabase(errorNegativeNumber);
-            MessageBox.Show(errorNegativeNumber, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            string errorMessage = "Error: You entered a negative number, please try again.";
+            _loggingService.WriteToDatabase(errorMessage);
+            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void Convert_Button_Click(object sender, RoutedEventArgs e)

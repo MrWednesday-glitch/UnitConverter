@@ -25,29 +25,29 @@ namespace UnitConverter
 
         void NegativeNumberError()
         {
-            string errorMsgNegaNumber = "Error: You entered a negative number. Please try again.";
+            string errorMessage = "Error: You entered a negative number. Please try again.";
 
             Console.Clear();
-            Console.WriteLine($"{errorMsgNegaNumber} \n");
-            _logging.WriteToLogFile(errorMsgNegaNumber);
+            Console.WriteLine($"{errorMessage} \n");
+            _logging.WriteToLogFile(errorMessage);
         }
 
         void NoValidNumberError()
         {
-            string errorMsgNoValidNumber = "Error: You did not enter a valid number to be converted. Please try again.";
+            string errorMessage = "Error: You did not enter a valid number to be converted. Please try again.";
 
             Console.Clear();
-            Console.WriteLine($"{errorMsgNoValidNumber} \n");
-            _logging.WriteToLogFile(errorMsgNoValidNumber);
+            Console.WriteLine($"{errorMessage} \n");
+            _logging.WriteToLogFile(errorMessage);
         }
 
         void UserInputError()
         {
-            string errorMsgUserInput = "Error: Input was not recognized, please enter a correct number!";
+            string errorMessage = "Error: Input was not recognized, please enter a correct number!";
 
             Console.Clear();
-            _logging.WriteToLogFile(errorMsgUserInput);
-            Console.WriteLine(errorMsgUserInput +
+            _logging.WriteToLogFile(errorMessage);
+            Console.WriteLine(errorMessage +
                 "\nPress any key to return to the menu.");
             Console.ReadKey();
             Console.Clear();

@@ -52,8 +52,8 @@ namespace UnitConverter.Business
         {
             string logFormat = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()} ==> ";
             string date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
-            string pathName = @"C:\Users\itvadmin\Documents\programma's\Log" + date; //Probably enter your own pathname to prevent crashes
-            StreamWriter sw = new(pathName + ".txt", true);
+
+            StreamWriter sw = new(@$"C:\Users\itvadmin\Documents\programma's\Log{date}.txt", true); //Probably enter your own pathname to prevent crashes
             try
             {
                 sw.WriteLine(logFormat + message);
@@ -70,9 +70,9 @@ namespace UnitConverter.Business
             }
         }
 
-        internal void WriteToLogFile(object errorMsgNegaNumber)
-        {
-            throw new NotImplementedException();
-        }
+        //internal void WriteToLogFile(object errorMsgNegaNumber)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

@@ -2,8 +2,8 @@
 {
     public  interface ILoggingService
     {
-        void WriteToLogFile(string sMsg);
+        void WriteToLogFile(string message);
 
-        void WriteToDatabase(string sMsg);
+        void WriteToDatabase(string message);
     }
 }
