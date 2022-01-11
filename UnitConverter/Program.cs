@@ -125,30 +125,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} centimeter to {output}.");
 
-            Console.WriteLine("\nPlease select any of the following options and press enter: " +
-    "\n1. Recalculate a different number. " +
-    "\n2. Return to Main Menu. " +
-    "\n3. Kill this program.");
-            int.TryParse(Console.ReadLine(), out int choice);
-            if (choice == 1)
-            {
-                Console.Clear();
-                CmToM();
-            }
-            else if (choice == 2)
-            {
-                //Keep empty to return to MainMenu()
-            }
-            else if (choice == 3)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Choose a valid option.");
-            }
-
-            Console.Clear();
+            SecondMenu(CmToM);
         }
 
         void MToCm()
@@ -172,30 +149,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} meter to {output}.");
 
-            Console.WriteLine("\nPlease select any of the following options and press enter: " +
-"\n1. Recalculate a different number. " +
-"\n2. Return to Main Menu. " +
-"\n3. Kill this program.");
-            int.TryParse(Console.ReadLine(), out int choice);
-            if (choice == 1)
-            {
-                Console.Clear();
-                MToCm();
-            }
-            else if (choice == 2)
-            {
-                //Keep empty to return to MainMenu()
-            }
-            else if (choice == 3)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Choose a valid option.");
-            }
-
-            Console.Clear();
+            SecondMenu(MToCm);
         }
 
         void CmToMm()
@@ -219,30 +173,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} centimeters to {output}.");
 
-            Console.WriteLine("\nPlease select any of the following options and press enter: " +
-"\n1. Recalculate a different number. " +
-"\n2. Return to Main Menu. " +
-"\n3. Kill this program.");
-            int.TryParse(Console.ReadLine(), out int choice);
-            if (choice == 1)
-            {
-                Console.Clear();
-                CmToMm();
-            }
-            else if (choice == 2)
-            {
-                //Keep empty to return to MainMenu()
-            }
-            else if (choice == 3)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Choose a valid option.");
-            }
-
-            Console.Clear();
+            SecondMenu(CmToMm);
         }
 
         void MmToCm()
@@ -266,30 +197,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} millimeter to {output}.");
 
-            Console.WriteLine("\nPlease select any of the following options and press enter: " +
-"\n1. Recalculate a different number. " +
-"\n2. Return to Main Menu. " +
-"\n3. Kill this program.");
-            int.TryParse(Console.ReadLine(), out int choice);
-            if (choice == 1)
-            {
-                Console.Clear();
-                MmToCm();
-            }
-            else if (choice == 2)
-            {
-                //Keep empty to return to MainMenu()
-            }
-            else if (choice == 3)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Choose a valid option.");
-            }
-
-            Console.Clear();
+            SecondMenu(MmToCm);
         }
 
         void MToIn()
@@ -313,30 +221,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} meter to {output}.");
 
-            Console.WriteLine("\nPlease select any of the following options and press enter: " +
-"\n1. Recalculate a different number. " +
-"\n2. Return to Main Menu. " +
-"\n3. Kill this program.");
-            int.TryParse(Console.ReadLine(), out int choice);
-            if (choice == 1)
-            {
-                Console.Clear();
-                MToIn();
-            }
-            else if (choice == 2)
-            {
-                //Keep empty to return to MainMenu()
-            }
-            else if (choice == 3)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Choose a valid option.");
-            }
-
-            Console.Clear();
+            SecondMenu(MToIn);
         }
 
         void InToM()
@@ -360,33 +245,10 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} inches to {output}.");
 
-            Console.WriteLine("\nPlease select any of the following options and press enter: " +
-"\n1. Recalculate a different number. " +
-"\n2. Return to Main Menu. " +
-"\n3. Kill this program.");
-            int.TryParse(Console.ReadLine(), out int choice);
-            if (choice == 1)
-            {
-                Console.Clear();
-                InToM();
-            }
-            else if (choice == 2)
-            {
-                //Keep empty to return to MainMenu()
-            }
-            else if (choice == 3)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Choose a valid option.");
-            }
-
-            Console.Clear();
+            SecondMenu(InToM);
         }
 
-        void SecondMenu() //todo get rid of duplicate code
+        void SecondMenu(Action action)
         {
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -398,7 +260,7 @@ namespace UnitConverter
                 if (input == 1)
                 {
                     Console.Clear();
-                    //InToM();
+                    action();
                 }
                 else if (input == 2)
                 {
