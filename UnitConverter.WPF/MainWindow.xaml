@@ -13,12 +13,12 @@
         <RadioButton x:Name="MeterToCentimeter_Radio" Content="Meter =&gt; Centimeter" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="MillimeterToCentimeter_Radio" Content="Millimeter =&gt; Centimeter" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="InchToMeter_Radio" Content="Inch =&gt; Meter" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Convert_Button" Content="Convert" HorizontalAlignment="Left" Margin="124,276,0,0" VerticalAlignment="Top" Height="46" Width="57"/>
-        <Button x:Name="Reset_Button" Content="Reset" HorizontalAlignment="Left" Margin="202,276,0,0" VerticalAlignment="Top" Height="46" Width="57"/>
-        <Button x:Name="Kill_Button" Content="Exit" HorizontalAlignment="Left" Margin="273,276,0,0" VerticalAlignment="Top" Height="46" Width="56"/>
-
-        <Border BorderBrush="Black" BorderThickness="1"/>
+        <Button x:Name="Convert_Button" Content="Convert" HorizontalAlignment="Left" Margin="124,276,0,0" VerticalAlignment="Top" Height="46" Width="57" Click="Convert_Button_Click"/>
+        <Button x:Name="Reset_Button" Content="Reset" HorizontalAlignment="Left" Margin="202,276,0,0" VerticalAlignment="Top" Height="46" Width="57" Click="Reset_Button_Click"/>
+        <Button x:Name="Kill_Button" Content="Exit" HorizontalAlignment="Left" Margin="273,276,0,0" VerticalAlignment="Top" Height="46" Width="56" Click="Kill_Button_Click"/>
         <TextBox x:Name="Input_TextBox" HorizontalAlignment="Left" Margin="230,116,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="223" Cursor="Hand"/>
-        <TextBox x:Name="Output_TextBox" HorizontalAlignment="Right" Margin="0,160,347,0" VerticalAlignment="Top" Width="223"/>
+        <Label x:Name="Output_Label" HorizontalAlignment="Right" Margin="0,160,347,0" VerticalAlignment="Top" Width="223" Content="0"/>
+        <Label x:Name="InputType_Label" HorizontalAlignment="Right" Margin="0,121,276,0" VerticalAlignment="Top" Width="42"/>
+        <Label x:Name="OutputType_Label" HorizontalAlignment="Right" Margin="0,160,276,0" VerticalAlignment="Top" Width="42"/>
     </Grid>
 </Window>

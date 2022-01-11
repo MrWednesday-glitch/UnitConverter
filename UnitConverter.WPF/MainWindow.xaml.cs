@@ -32,7 +32,7 @@ namespace UnitConverter.WPF
         }
 
         private void Convert_Button_Click(object sender, RoutedEventArgs e)
-        { //It does not get here...?
+        { 
             if (MeterToCentimeter_Radio.IsChecked == true)
             {
                 bool success = double.TryParse(Input_TextBox.Text, out double input);
@@ -40,12 +40,111 @@ namespace UnitConverter.WPF
                 {
                     string errorMessage = "Error: You did not enter a valid number, please try again.";
                     _loggingService.WriteToDatabase(errorMessage);
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
                 }
                 double output = _converterService.MeterToCentimeter(input);
                 _loggingService.WriteToDatabase($"{input} meter to {output}.");
-                Output_TextBox.Text = output.ToString();
+                Output_Label.Content = output.ToString();
+                InputType_Label.Content = "m";
+                OutputType_Label.Content = "cm";
             }
+            else if (CentimeterToMeter_Radio.IsChecked == true)
+            {
+                bool success = double.TryParse(Input_TextBox.Text, out double input);
+                if (!success)
+                {
+                    string errorMessage = "Error: You did not enter a valid number, please try again.";
+                    _loggingService.WriteToDatabase(errorMessage);
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                double output = _converterService.CentimeterToMeter(input);
+                _loggingService.WriteToDatabase($"{input} centimeter to {output}.");
+                Output_Label.Content = output.ToString();
+                InputType_Label.Content = "cm";
+                OutputType_Label.Content = "m";
+            }
+            else if (CentimeterToMillimeter_Radio.IsChecked == true)
+            {
+                bool success = double.TryParse(Input_TextBox.Text, out double input);
+                if (!success)
+                {
+                    string errorMessage = "Error: You did not enter a valid number, please try again.";
+                    _loggingService.WriteToDatabase(errorMessage);
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                double output = _converterService.CentimeterToMillimeter(input);
+                _loggingService.WriteToDatabase($"{input} centimeter to {output}.");
+                Output_Label.Content = output.ToString();
+                InputType_Label.Content = "cm";
+                OutputType_Label.Content = "mm";
+            }
+            else if (MillimeterToCentimeter_Radio.IsChecked == true)
+            {
+                bool success = double.TryParse(Input_TextBox.Text, out double input);
+                if (!success)
+                {
+                    string errorMessage = "Error: You did not enter a valid number, please try again.";
+                    _loggingService.WriteToDatabase(errorMessage); 
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                double output = _converterService.MillimeterToCentimeter(input);
+                _loggingService.WriteToDatabase($"{input} millimeter to {output}.");
+                Output_Label.Content = output.ToString();
+                InputType_Label.Content = "mm";
+                OutputType_Label.Content = "cm";
+            }
+            else if (MeterToInch_Radio.IsChecked == true)
+            {
+                bool success = double.TryParse(Input_TextBox.Text, out double input);
+                if (!success)
+                {
+                    string errorMessage = "Error: You did not enter a valid number, please try again.";
+                    _loggingService.WriteToDatabase(errorMessage);
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                double output = _converterService.MeterToInch(input);
+                _loggingService.WriteToDatabase($"{input} meter to {output}.");
+                Output_Label.Content = output.ToString();
+                InputType_Label.Content = "m";
+                OutputType_Label.Content = "in";
+            }
+            else if (InchToMeter_Radio.IsChecked == true)
+            {
+                bool success = double.TryParse(Input_TextBox.Text, out double input);
+                if (!success)
+                {
+                    string errorMessage = "Error: You did not enter a valid number, please try again.";
+                    _loggingService.WriteToDatabase(errorMessage);
+                    MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                double output = _converterService.InchToMeter(input);
+                _loggingService.WriteToDatabase($"{input} inch to {output}.");
+                Output_Label.Content = output.ToString();
+                InputType_Label.Content = "in";
+                OutputType_Label.Content = "m";
+            }
+            else
+            {
+                string noSelectionMadeError = "You failed to select any convertmethod, you dummy.";
+                _loggingService.WriteToDatabase(noSelectionMadeError);
+                MessageBox.Show(noSelectionMadeError, "Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void Kill_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Reset_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Input_TextBox.Clear();
+            Output_Label.Content = "0";
         }
     }
 }
