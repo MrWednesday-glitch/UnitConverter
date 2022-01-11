@@ -16,9 +16,10 @@
         <Button x:Name="Convert_Button" Content="Convert" HorizontalAlignment="Left" Margin="124,276,0,0" VerticalAlignment="Top" Height="46" Width="57" Click="Convert_Button_Click"/>
         <Button x:Name="Reset_Button" Content="Reset" HorizontalAlignment="Left" Margin="202,276,0,0" VerticalAlignment="Top" Height="46" Width="57" Click="Reset_Button_Click"/>
         <Button x:Name="Kill_Button" Content="Exit" HorizontalAlignment="Left" Margin="273,276,0,0" VerticalAlignment="Top" Height="46" Width="56" Click="Kill_Button_Click"/>
-        <TextBox x:Name="Input_TextBox" HorizontalAlignment="Left" Margin="230,116,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="223" Cursor="Hand"/>
-        <Label x:Name="Output_Label" HorizontalAlignment="Right" Margin="0,160,347,0" VerticalAlignment="Top" Width="223" Content="0"/>
-        <Label x:Name="InputType_Label" HorizontalAlignment="Right" Margin="0,121,276,0" VerticalAlignment="Top" Width="42"/>
-        <Label x:Name="OutputType_Label" HorizontalAlignment="Right" Margin="0,160,276,0" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="Input_TextBox" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="230,61,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="223" Cursor="Hand"/>
+        <Label x:Name="Output_Label" HorizontalAlignment="Right" HorizontalContentAlignment="Right" Margin="0,181,346,0" VerticalAlignment="Top" Width="224" Content="0"/>
+        <Label x:Name="InputType_Label" HorizontalAlignment="Right" Margin="0,61,276,0" VerticalAlignment="Top" Width="42" Height="26"/>
+        <Label x:Name="OutputType_Label" HorizontalAlignment="Right" Margin="0,181,276,0" VerticalAlignment="Top" Width="42" Height="26"/>
+        <Label x:Name="Title_Label" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="780" Content="Welcome to this unit converter: Please select an option to the left, enter a number into the textbox and press convert." Height="35" FontWeight="Bold" FontFamily="Ink Free" FontSize="14"/>
     </Grid>
 </Window>
