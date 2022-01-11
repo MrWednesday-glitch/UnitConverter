@@ -1,20 +1,19 @@
 ﻿using System;
 using UnitConverter.Business;
-using UnitConverter.Common;
 
 namespace UnitConverter
 {
     internal class Program
     {
         private readonly ConverterService _converterService;
-        private readonly Logging _logging;
-        private string _errorMsgUserInput = "Error: Input was not recognized, please enter a correct number! ";
-        private string _errorMsgNoValidnumber = "Error: You did not enter a valid number to be converted. Please try again.";
+        private readonly LoggingService _logging;
+        private const string _errorMsgUserInput = "Error: Input was not recognized, please enter a correct number! ";
+        private const string _errorMsgNoValidnumber = "Error: You did not enter a valid number to be converted. Please try again.";
 
         public Program()
         {
             _converterService = new ConverterService();
-            _logging = new Logging();
+            _logging = new LoggingService();
         }
 
         static void Main(string[] args)
