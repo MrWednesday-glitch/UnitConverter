@@ -6,7 +6,6 @@ namespace UnitConverter.Business
     public class ConverterService : IConverterService
     {
         private readonly LoggingService _logging;
-        //private const string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
 
         public ConverterService()
         {
@@ -16,7 +15,8 @@ namespace UnitConverter.Business
         private void NegativeNumberErrorMessage()
         {
             string _errorMsgNegaNumber = "You accidentally entered a negative number, no worries, I fixed it for you.";
-            _logging.WriteToLogFile(_errorMsgNegaNumber);
+            _logging.WriteToLogFile(_errorMsgNegaNumber); //TODO Have it only log to the logfile when using the consoleapp, and only log to the database when using the visual ui
+            //_logging.WriteToDatabase(_errorMsgNegaNumber);
             Console.WriteLine(_errorMsgNegaNumber);
         }
 

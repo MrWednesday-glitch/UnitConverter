@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using UnitConverter.Domain.Interfaces;
 
@@ -7,7 +8,7 @@ namespace UnitConverter.Business
 {
     public class LoggingService : ILoggingService
     {
-        private const string _connectionstring = @""; //Pretend that there is a dbo connection here
+        private const string _connectionstring = @""; //Pretend that there is a dbo connection here, or enter your own
         private readonly SqlConnection _connection;
 
         public LoggingService()
@@ -15,7 +16,7 @@ namespace UnitConverter.Business
             _connection = new SqlConnection(_connectionstring);
         }
 
-        public void WriteToDatabase(string sMsg)
+        public void WriteToDatabase(string message)
         {
             try
             {
@@ -28,7 +29,7 @@ namespace UnitConverter.Business
                 {
                     command.Parameters.AddWithValue("@Dates", date);
                     command.Parameters.AddWithValue("@Times", time);
-                    command.Parameters.AddWithValue("@Msg", sMsg);
+                    command.Parameters.AddWithValue("@Msg", message);
 
                     _connection.Open();
                     int result = command.ExecuteNonQuery();
@@ -43,30 +44,29 @@ namespace UnitConverter.Business
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(ex);
             }
         }
 
-        public void WriteToLogFile(string sMsg)
+        public void WriteToLogFile(string message)
         {
+            string logFormat = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()} ==> ";
+            string date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+            string pathName = @"C:\Users\itvadmin\Documents\programma's\Log" + date; //Probably enter your own pathname to prevent crashes
+            StreamWriter sw = new(pathName + ".txt", true);
             try
             {
-                string sLogFormat = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()} ==> ";
-
-                string sYear = DateTime.Now.Year.ToString();
-                string sMonth = DateTime.Now.Month.ToString();
-                string sDay = DateTime.Now.Day.ToString();
-                string sTime = sYear + sMonth + sDay;
-
-                string sPathName = @"C:\Users\itvadmin\Documents\programma's\Log" + sTime;
-                StreamWriter sw = new(sPathName + ".txt", true);
-                sw.WriteLine(sLogFormat + sMsg);
-                sw.Flush();
-                sw.Close();
+                sw.WriteLine(logFormat + message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Debug.WriteLine(logFormat + ex);
+                sw.WriteLine(logFormat + ex);
+            }
+            finally
+            {
+                sw.Flush();
+                sw.Close();
             }
         }
 
