@@ -25,7 +25,7 @@ namespace UnitConverter.Business
 
                 string query = $"INSERT INTO dbo.Logs (Dates, Times, Msg) VALUES (@Dates, @Times, @Msg)";
 
-                using (SqlCommand command = new SqlCommand(query, _connection))
+                using (SqlCommand command = new(query, _connection))
                 {
                     command.Parameters.AddWithValue("@Dates", date);
                     command.Parameters.AddWithValue("@Times", time);

@@ -7,8 +7,6 @@ namespace UnitConverter
     {
         private readonly ConverterService _converterService;
         private readonly LoggingService _logging;
-        private const string _errorMsgUserInput = "Error: Input was not recognized, please enter a correct number! ";
-        private const string _errorMsgNoValidnumber = "Error: You did not enter a valid number to be converted. Please try again.";
 
         public Program()
         {
@@ -23,6 +21,36 @@ namespace UnitConverter
             {
                 program.MainMenu();
             }
+        }
+
+        void NegativeNumberError()
+        {
+            string errorMsgNegaNumber = "Error: You entered a negative number. Please try again.";
+
+            Console.Clear();
+            Console.WriteLine($"{errorMsgNegaNumber} \n");
+            _logging.WriteToLogFile(errorMsgNegaNumber);
+        }
+
+        void NoValidNumberError()
+        {
+            string errorMsgNoValidNumber = "Error: You did not enter a valid number to be converted. Please try again.";
+
+            Console.Clear();
+            Console.WriteLine($"{errorMsgNoValidNumber} \n");
+            _logging.WriteToLogFile(errorMsgNoValidNumber);
+        }
+
+        void UserInputError()
+        {
+            string errorMsgUserInput = "Error: Input was not recognized, please enter a correct number!";
+
+            Console.Clear();
+            _logging.WriteToLogFile(errorMsgUserInput);
+            Console.WriteLine(errorMsgUserInput +
+                "\nPress any key to return to the menu.");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         void MainMenu()
@@ -66,23 +94,13 @@ namespace UnitConverter
                         Environment.Exit(0);
                         break;
                     default:
-                        Console.Clear();
-                        _logging.WriteToLogFile(_errorMsgUserInput);
-                        Console.WriteLine(_errorMsgUserInput +
-                            "\nPress any key to return to the main menu."); 
-                        Console.ReadKey();
-                        Console.Clear();
+                        UserInputError();
                         break;
                 }
             }
             else
             {
-                Console.Clear();
-                _logging.WriteToLogFile(_errorMsgUserInput);
-                Console.WriteLine(_errorMsgUserInput + 
-                    "\nPress any key to return to the main menu.");
-                Console.ReadKey();
-                Console.Clear();
+                UserInputError();
             }
         }
 
@@ -90,12 +108,16 @@ namespace UnitConverter
         {
             Console.WriteLine("Please enter a number of centimeters to be converted to meters");
             bool success = float.TryParse(Console.ReadLine(), out float input);
-            
+
             if (!success)
             {
-                Console.Clear();
-                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
-                _logging.WriteToLogFile(_errorMsgNoValidnumber);
+                NoValidNumberError();
+                CmToM();
+            }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
                 CmToM();
             }
 
@@ -136,9 +158,13 @@ namespace UnitConverter
 
             if (!success)
             {
-                Console.Clear();
-                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
-                _logging.WriteToLogFile(_errorMsgNoValidnumber);
+                NoValidNumberError();
+                MToCm();
+            }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
                 MToCm();
             }
 
@@ -179,9 +205,13 @@ namespace UnitConverter
 
             if (!success)
             {
-                Console.Clear();
-                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
-                _logging.WriteToLogFile(_errorMsgNoValidnumber);
+                NoValidNumberError();
+                CmToMm();
+            }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
                 CmToMm();
             }
 
@@ -222,9 +252,13 @@ namespace UnitConverter
 
             if (!success)
             {
-                Console.Clear();
-                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
-                _logging.WriteToLogFile(_errorMsgNoValidnumber);
+                NoValidNumberError();
+                MmToCm();
+            }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
                 MmToCm();
             }
 
@@ -265,9 +299,13 @@ namespace UnitConverter
 
             if (!success)
             {
-                Console.Clear();
-                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
-                _logging.WriteToLogFile(_errorMsgNoValidnumber);
+                NoValidNumberError();
+                MToIn();
+            }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
                 MToIn();
             }
 
@@ -308,9 +346,13 @@ namespace UnitConverter
 
             if (!success)
             {
-                Console.Clear();
-                Console.WriteLine($"{_errorMsgNoValidnumber} \n");
-                _logging.WriteToLogFile(_errorMsgNoValidnumber);
+                NoValidNumberError();
+                InToM();
+            }
+
+            if (input < 0)
+            {
+                NegativeNumberError();
                 InToM();
             }
 
@@ -339,6 +381,41 @@ namespace UnitConverter
             else
             {
                 Console.WriteLine("Choose a valid option.");
+            }
+
+            Console.Clear();
+        }
+
+        void SecondMenu() //todo get rid of duplicate code
+        {
+            Console.WriteLine("\nPlease select any of the following options and press enter: " +
+"\n1. Recalculate a different number. " +
+"\n2. Return to Main Menu. " +
+"\n3. Kill this program.");
+           bool success =  int.TryParse(Console.ReadLine(), out int input);
+            if (success)
+            {
+                if (input == 1)
+                {
+                    Console.Clear();
+                    //InToM();
+                }
+                else if (input == 2)
+                {
+                    //Keep empty to return to MainMenu()
+                }
+                else if (input == 3)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Choose a valid option.");
+                }
+            }
+            else
+            {
+                UserInputError();
             }
 
             Console.Clear();
