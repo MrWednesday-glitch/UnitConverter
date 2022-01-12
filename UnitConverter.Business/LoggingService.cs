@@ -11,11 +11,14 @@ namespace UnitConverter.Business
         private const string _connectionstring = @""; //Pretend that there is a dbo connection here, or enter your own
         private readonly SqlConnection _connection;
 
+        #region Constructors
         public LoggingService()
         {
             _connection = new SqlConnection(_connectionstring);
         }
+        #endregion
 
+        #region Methods
         public void WriteToDatabase(string message)
         {
             try
@@ -69,6 +72,7 @@ namespace UnitConverter.Business
                 sw.Close();
             }
         }
+        #endregion
 
         //internal void WriteToLogFile(object errorMsgNegaNumber)
         //{

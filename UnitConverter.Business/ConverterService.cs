@@ -9,11 +9,14 @@ namespace UnitConverter.Business
         private const double _centimeterMillimeterRelation = 10;
         private const double _meterInchRelation = 39.37008;
 
+        #region Constructors
         public ConverterService()
         {
 
         }
+        #endregion
 
+        #region Methods
         public double MeterToCentimeter(double meter)
         {
             return meter * _meterCentimeterRelation;
@@ -43,5 +46,6 @@ namespace UnitConverter.Business
         {
             return inch / _meterInchRelation;
         }
+        #endregion
     }
 }

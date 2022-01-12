@@ -24,13 +24,16 @@ namespace UnitConverter.WPF
         private readonly ConverterService _converterService;
         private readonly LoggingService _loggingService;
 
+        #region Constructors
         public MainWindow()
         {
             InitializeComponent();
             _converterService = new ConverterService();
             _loggingService = new LoggingService();
         }
+        #endregion
 
+        #region Methods
         private void NoValidNumberError()
         {
             string errorMessage = "Error: You did not enter a valid number, please try again.";
@@ -110,5 +113,6 @@ namespace UnitConverter.WPF
             Input_TextBox.Clear();
             Output_Label.Content = "0";
         }
+        #endregion
     }
 }

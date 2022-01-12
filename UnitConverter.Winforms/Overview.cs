@@ -9,13 +9,16 @@ namespace UnitConverter.Winforms
         private readonly ConverterService _converterService;
         private readonly LoggingService _logging;
 
+        #region Constructors
         public Overview()
         {
             InitializeComponent();
             _converterService = new ConverterService();
             _logging = new LoggingService();
         }
+        #endregion
 
+        #region Methods
         private void NoValidNumberError()
         {
             string errorMessage = "Error: You did not enter a valid number, please try again.";
@@ -91,5 +94,6 @@ namespace UnitConverter.Winforms
         {
             Convert(_converterService.InchToMeter, "in", "m");
         }
+        #endregion
     }
 }

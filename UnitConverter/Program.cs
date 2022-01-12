@@ -8,12 +8,15 @@ namespace UnitConverter
         private readonly ConverterService _converterService;
         private readonly LoggingService _logging;
 
+        #region Constructors
         public Program()
         {
             _converterService = new ConverterService();
             _logging = new LoggingService();
         }
+        #endregion
 
+        #region Methods
         static void Main(string[] args)
         {
             Program program = new();
@@ -229,5 +232,6 @@ namespace UnitConverter
 
             Console.Clear();
         }
+        #endregion
     }
 }
