@@ -16,21 +16,21 @@ namespace UnitConverter.Winforms
             _logging = new LoggingService();
         }
 
-        void NoValidNumberError()
+        private void NoValidNumberError()
         {
             string errorMessage = "Error: You did not enter a valid number, please try again.";
             _logging.WriteToDatabase(errorMessage);
             MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        void NegativeNumberError()
+        private void NegativeNumberError()
         {
             string errorMessage = "Error: You entered a negative number, please try again.";
             _logging.WriteToDatabase(errorMessage);
             MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void button_MeterToCentimeter_Click(object sender, EventArgs e)
+        private void Convert(Func<double, double> serviceMethod, string inputType, string outputType)
         {
             bool success = double.TryParse(textBox_Input.Text, out double input);
             if (!success)
@@ -43,11 +43,17 @@ namespace UnitConverter.Winforms
                 NegativeNumberError();
             }
 
-            double output = _converterService.MeterToCentimeter(input);
-            _logging.WriteToDatabase($"{input} meter to {output}.");
+            Func<double, double> convert = serviceMethod;
+            double output = convert(input);
+            _logging.WriteToDatabase($"{input} {inputType} to {output} {outputType}.");
             label_Output.Text = output.ToString();
-            label_InputType.Text = "m";
-            label_OutputType.Text = "cm";
+            label_InputType.Text = inputType;
+            label_OutputType.Text = outputType;
+        }
+
+        private void button_MeterToCentimeter_Click(object sender, EventArgs e)
+        {
+            Convert(_converterService.MeterToCentimeter, "m", "cm");
         }
 
         private void button_Exit_Click(object sender, EventArgs e)
@@ -63,102 +69,27 @@ namespace UnitConverter.Winforms
 
         private void button_CentimeterToMeter_Click(object sender, EventArgs e)
         {
-            bool success = double.TryParse(textBox_Input.Text, out double input);
-            if (!success)
-            {
-                NoValidNumberError();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-            }
-
-            double output = _converterService.CentimeterToMeter(input);
-            _logging.WriteToDatabase($"{input} centimeter to {output}.");
-            label_Output.Text = output.ToString();
-            label_InputType.Text = "cm";
-            label_OutputType.Text = "m";
+            Convert(_converterService.CentimeterToMeter, "cm", "m");
         }
 
         private void button_CentimeterToMillimeter_Click(object sender, EventArgs e)
         {
-            bool success = double.TryParse(textBox_Input.Text, out double input);
-            if (!success)
-            {
-                NoValidNumberError();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-            }
-
-            double output = _converterService.CentimeterToMillimeter(input);
-            _logging.WriteToDatabase($"{input} centimeter to {output}.");
-            label_Output.Text = output.ToString();
-            label_InputType.Text = "cm";
-            label_OutputType.Text = "mm";
+            Convert(_converterService.CentimeterToMillimeter, "cm", "mm");
         }
 
         private void button_MillimeterToCentimeter_Click(object sender, EventArgs e)
         {
-            bool success = double.TryParse(textBox_Input.Text, out double input);
-            if (!success)
-            {
-                NoValidNumberError();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-            }
-
-            double output = _converterService.MillimeterToCentimeter(input);
-            _logging.WriteToDatabase($"{input} millimeter to {output}.");
-            label_Output.Text = output.ToString();
-            label_InputType.Text = "mm";
-            label_OutputType.Text = "cm";
+            Convert(_converterService.MillimeterToCentimeter, "mm", "cm");
         }
 
         private void button_MeterToInch_Click(object sender, EventArgs e)
         {
-            bool success = double.TryParse(textBox_Input.Text, out double input);
-            if (!success)
-            {
-                NoValidNumberError();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-            }
-
-            double output = _converterService.MeterToInch(input);
-            _logging.WriteToDatabase($"{input} meter to {output}.");
-            label_Output.Text = output.ToString();
-            label_InputType.Text = "m";
-            label_OutputType.Text = "in";
+            Convert(_converterService.MeterToInch, "m", "in");
         }
 
         private void button_InchToMeter_Click(object sender, EventArgs e)
         {
-            bool success = double.TryParse(textBox_Input.Text, out double input);
-            if (!success)
-            {
-                NoValidNumberError();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-            }
-
-            double output = _converterService.InchToMeter(input);
-            _logging.WriteToDatabase($"{input} inch to {output}.");
-            label_Output.Text = output.ToString();
-            label_InputType.Text = "in";
-            label_OutputType.Text = "m";
+            Convert(_converterService.InchToMeter, "in", "m");
         }
     }
 }

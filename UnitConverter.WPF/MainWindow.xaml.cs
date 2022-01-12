@@ -67,7 +67,7 @@ namespace UnitConverter.WPF
         }
 
         private void Convert_Button_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             if (MeterToCentimeter_Radio.IsChecked == true)
             {
                 Convert(_converterService.MeterToCentimeter, "m", "cm");
@@ -78,19 +78,19 @@ namespace UnitConverter.WPF
             }
             else if (CentimeterToMillimeter_Radio.IsChecked == true)
             {
-                Convert( _converterService.CentimeterToMillimeter, "cm", "mm");
+                Convert(_converterService.CentimeterToMillimeter, "cm", "mm");
             }
             else if (MillimeterToCentimeter_Radio.IsChecked == true)
             {
-                Convert( _converterService.MillimeterToCentimeter, "mm", "cm");
+                Convert(_converterService.MillimeterToCentimeter, "mm", "cm");
             }
             else if (MeterToInch_Radio.IsChecked == true)
             {
-                Convert( _converterService.MeterToInch, "m", "in");
+                Convert(_converterService.MeterToInch, "m", "in");
             }
             else if (InchToMeter_Radio.IsChecked == true)
             {
-                Convert( _converterService.InchToMeter, "in", "m");
+                Convert(_converterService.InchToMeter, "in", "m");
             }
             else
             {
