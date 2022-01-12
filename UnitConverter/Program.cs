@@ -119,8 +119,8 @@ namespace UnitConverter
             }
 
             Func<double, double> convert = serviceMethod;
-            double result = convert(input);
-            return result;
+            //double result = convert(input);
+            return convert(input);
         }
 
         private void CmToM()
@@ -195,7 +195,7 @@ namespace UnitConverter
             SecondMenu(InToM);
         }
 
-        private void SecondMenu(Action action)
+        private void SecondMenu(Action currentMethod)
         {
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -207,7 +207,7 @@ namespace UnitConverter
                 if (input == 1)
                 {
                     Console.Clear();
-                    action();
+                    currentMethod();
                 }
                 else if (input == 2)
                 {
