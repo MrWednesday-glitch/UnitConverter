@@ -23,7 +23,7 @@ namespace UnitConverter
             }
         }
 
-        void NegativeNumberError()
+        private void NegativeNumberError()
         {
             string errorMessage = "Error: You entered a negative number. Please try again.";
 
@@ -32,7 +32,7 @@ namespace UnitConverter
             _logging.WriteToLogFile(errorMessage);
         }
 
-        void NoValidNumberError()
+        private void NoValidNumberError()
         {
             string errorMessage = "Error: You did not enter a valid number to be converted. Please try again.";
 
@@ -41,7 +41,7 @@ namespace UnitConverter
             _logging.WriteToLogFile(errorMessage);
         }
 
-        void UserInputError()
+        private void UserInputError()
         {
             string errorMessage = "Error: Input was not recognized, please enter a correct number!";
 
@@ -53,7 +53,7 @@ namespace UnitConverter
             Console.Clear();
         }
 
-        void MainMenu()
+        private void MainMenu()
         {
             Console.WriteLine("Welcome to this Unit Converter. " +
                 "\n\nPlease select an option by pressing the appropriate number and pressing enter afterwards: " +
@@ -104,151 +104,98 @@ namespace UnitConverter
             }
         }
 
-        void CmToM()
+        private double Convert(bool success, double input, Action currentMethod, Func<double, double> serviceMethod)
         {
-            Console.WriteLine("Please enter a number of centimeters to be converted to meters");
-            bool success = float.TryParse(Console.ReadLine(), out float input);
-
             if (!success)
             {
                 NoValidNumberError();
-                CmToM();
+                currentMethod();
             }
 
             if (input < 0)
             {
                 NegativeNumberError();
-                CmToM();
+                currentMethod();
             }
 
-            string output = $"{_converterService.CentimeterToMeter(input)} meter";
+            Func<double, double> convert = serviceMethod;
+            double result = convert(input);
+            return result;
+        }
+
+        private void CmToM()
+        {
+            Console.WriteLine("Please enter a number of centimeters to be converted to meters");
+            bool success = double.TryParse(Console.ReadLine(), out double input);
+
+            string output = $"{Convert(success, input, CmToM, _converterService.CentimeterToMeter)} meter";
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} centimeter to {output}.");
 
             SecondMenu(CmToM);
         }
 
-        void MToCm()
+        private void MToCm()
         {
             Console.WriteLine("Please enter a number of meters to be converted to centimeter");
-            bool success = float.TryParse(Console.ReadLine(), out float input);
+            bool success = double.TryParse(Console.ReadLine(), out double input);
 
-            if (!success)
-            {
-                NoValidNumberError();
-                MToCm();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-                MToCm();
-            }
-
-            string output = $"{_converterService.MeterToCentimeter(input)} centimeter";
+            string output = $"{Convert(success, input, MToCm, _converterService.MeterToCentimeter)} centimeter";
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} meter to {output}.");
 
             SecondMenu(MToCm);
         }
 
-        void CmToMm()
+        private void CmToMm()
         {
             Console.WriteLine("Please enter a number of centimeters to be converted to millimeters");
-            bool success = float.TryParse(Console.ReadLine(), out float input);
+            bool success = double.TryParse(Console.ReadLine(), out double input);
 
-            if (!success)
-            {
-                NoValidNumberError();
-                CmToMm();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-                CmToMm();
-            }
-
-            string output = $"{_converterService.CentimeterToMillimeter(input)} millimeter";
+            string output = $"{Convert(success, input, CmToMm, _converterService.CentimeterToMillimeter)} millimeter";
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} centimeters to {output}.");
 
             SecondMenu(CmToMm);
         }
 
-        void MmToCm()
+        private void MmToCm()
         {
             Console.WriteLine("Please enter a number of millimeters to be converted to centimeters");
-            bool success = float.TryParse(Console.ReadLine(), out float input);
+            bool success = double.TryParse(Console.ReadLine(), out double input);
 
-            if (!success)
-            {
-                NoValidNumberError();
-                MmToCm();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-                MmToCm();
-            }
-
-            string output = $"{_converterService.MillimeterToCentimeter(input)} centimeter";
+            string output = $"{Convert(success, input, MmToCm, _converterService.MillimeterToCentimeter)} centimeter";
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} millimeter to {output}.");
 
             SecondMenu(MmToCm);
         }
 
-        void MToIn()
+        private void MToIn()
         {
             Console.WriteLine("Please enter a number of meters to be converted to inches");
-            bool success = float.TryParse(Console.ReadLine(), out float input);
+            bool success = double.TryParse(Console.ReadLine(), out double input);
 
-            if (!success)
-            {
-                NoValidNumberError();
-                MToIn();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-                MToIn();
-            }
-
-            string output = $"{_converterService.MeterToInch(input)} inch";
+            string output = $"{Convert(success, input, MToIn, _converterService.MeterToInch)} inch";
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} meter to {output}.");
 
             SecondMenu(MToIn);
         }
 
-        void InToM()
+        private void InToM()
         {
             Console.WriteLine("Please enter a number of inches to be converted to meters");
-            bool success = float.TryParse(Console.ReadLine(), out float input);
+            bool success = double.TryParse(Console.ReadLine(), out double input);
 
-            if (!success)
-            {
-                NoValidNumberError();
-                InToM();
-            }
-
-            if (input < 0)
-            {
-                NegativeNumberError();
-                InToM();
-            }
-
-            string output = $"{_converterService.InchToMeter(input)} meter";
+            string output = $"{Convert(success, input, InToM, _converterService.InchToMeter)} meter";
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} inches to {output}.");
 
             SecondMenu(InToM);
         }
 
-        void SecondMenu(Action action)
+        private void SecondMenu(Action action)
         {
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
