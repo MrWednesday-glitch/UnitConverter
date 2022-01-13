@@ -122,7 +122,6 @@ namespace UnitConverter
             }
 
             Func<double, double> convert = serviceMethod;
-            //double result = convert(input);
             return convert(input);
         }
 

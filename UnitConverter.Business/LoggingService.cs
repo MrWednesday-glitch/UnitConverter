@@ -79,9 +79,5 @@ namespace UnitConverter.Business
         }
         #endregion
 
-        //internal void WriteToLogFile(object errorMsgNegaNumber)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }
