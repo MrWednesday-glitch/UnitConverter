@@ -56,45 +56,57 @@ namespace UnitConverter
             Console.Clear();
         }
 
+        private enum ConversionChoice
+        {
+            KillProgram,
+            MeterToCentimeter,
+            CentimeterToMeter,
+            CentimeterToMillimeter,
+            MillimeterToCentimeter,
+            MeterToInch,
+            InchToMeter
+        }
+
         private void ShowMainMenu()
         {
             Console.WriteLine("Welcome to this Unit Converter. " +
                 "\n\nPlease select an option by pressing the appropriate number and pressing enter afterwards: " +
-                "\n1. Convert meter to centimeter. " +
+                "\n\n1. Convert meter to centimeter. " +
                 "\n2. Convert centimeter to meter. " +
                 "\n3. Convert centimeter to millimeter. " +
                 "\n4. Convert millimeter to centimeter. " +
                 "\n5. Convert meter to inch. " +
                 "\n6. Convert inch to meter. " +
-                "\n7. Kill this program.");
+                "\n\n0. Kill this program.");
 
-            bool success = int.TryParse(Console.ReadLine(), out int input);
+            bool success = int.TryParse(Console.ReadLine(), out int choice);
             if (success)
             {
+                ConversionChoice userChoice = (ConversionChoice)choice;
                 Console.Clear();
 
-                switch (input)
+                switch (userChoice)
                 {
-                    case 1:
+                    case ConversionChoice.KillProgram:
+                        Environment.Exit(0);
+                        break;
+                    case ConversionChoice.MeterToCentimeter:
                         MToCm();
                         break;
-                    case 2:
+                    case ConversionChoice.CentimeterToMeter:
                         CmToM();
                         break;
-                    case 3:
+                    case ConversionChoice.CentimeterToMillimeter:
                         CmToMm();
                         break;
-                    case 4:
+                    case ConversionChoice.MillimeterToCentimeter:
                         MmToCm();
                         break;
-                    case 5:
+                    case ConversionChoice.MeterToInch:
                         MToIn();
                         break;
-                    case 6:
+                    case ConversionChoice.InchToMeter:
                         InToM();
-                        break;
-                    case 7:
-                        Environment.Exit(0);
                         break;
                     default:
                         ShowUserInputError();
@@ -197,31 +209,38 @@ namespace UnitConverter
             ShowSecondMenu(InToM);
         }
 
+        private enum PostConversionChoice
+        {
+            KillProgram,
+            Recalculate,
+            ReturnMainMenu
+        }
+
         private void ShowSecondMenu(Action currentMethod)
         {
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
-"\n1. Recalculate a different number. " +
+"\n\n1. Recalculate a different number. " +
 "\n2. Return to Main Menu. " +
-"\n3. Kill this program.");
-            bool success = int.TryParse(Console.ReadLine(), out int input);
+"\n\n0. Kill this program.");
+
+            bool success = int.TryParse(Console.ReadLine(), out int choice);
             if (success)
             {
-                if (input == 1)
+                PostConversionChoice userChoice = (PostConversionChoice)choice;
+                switch (userChoice)
                 {
-                    Console.Clear();
-                    currentMethod();
-                }
-                else if (input == 2)
-                {
-                    //Keep empty to return to MainMenu()
-                }
-                else if (input == 3)
-                {
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    Console.WriteLine("Choose a valid option.");
+                    case PostConversionChoice.KillProgram:
+                        Environment.Exit(0);
+                        break;
+                    case PostConversionChoice.Recalculate:
+                        Console.Clear();
+                        currentMethod();
+                        break;
+                    case PostConversionChoice.ReturnMainMenu:
+                        break;
+                    default:
+                        Console.WriteLine("Choose a valid option.");
+                        break;
                 }
             }
             else
