@@ -26,36 +26,6 @@ namespace UnitConverter
             }
         }
 
-        private void ShowNegativeNumberError()
-        {
-            string errorMessage = "Error: You entered a negative number. Please try again.";
-
-            Console.Clear();
-            Console.WriteLine($"{errorMessage} \n");
-            _logging.WriteToLogFile(errorMessage);
-        }
-
-        private void ShowNoValidNumberError()
-        {
-            string errorMessage = "Error: You did not enter a valid number to be converted. Please try again.";
-
-            Console.Clear();
-            Console.WriteLine($"{errorMessage} \n");
-            _logging.WriteToLogFile(errorMessage);
-        }
-
-        private void ShowUserInputError()
-        {
-            string errorMessage = "Error: Input was not recognized, please enter a correct number!";
-
-            Console.Clear();
-            _logging.WriteToLogFile(errorMessage);
-            Console.WriteLine(errorMessage +
-                "\nPress any key to return to the menu.");
-            Console.ReadKey();
-            Console.Clear();
-        }
-
         private enum ConversionChoice
         {
             KillProgram,
@@ -119,26 +89,11 @@ namespace UnitConverter
             }
         }
 
-        private void Convert(Action currentMethod, Func<double, double> serviceMethod, string inputType, string outputType)
+        private void MToCm()
         {
-            Console.WriteLine($"Please enter a number of {inputType} to be converted to {outputType}");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-            if (!success)
-            {
-                ShowNoValidNumberError();
-                currentMethod();
-            }
+            Convert(MToCm, _converterService.MeterToCentimeter, "m", "cm");
 
-            if (input < 0)
-            {
-                ShowNegativeNumberError();
-                currentMethod();
-            }
-
-            Func<double, double> convert = serviceMethod;
-            double output = convert(input);
-            Console.WriteLine($"{output} {outputType}");
-            _logging.WriteToLogFile($"{input} {inputType} to {output} {outputType}.");
+            ShowSecondMenu(MToCm);
         }
 
         private void CmToM()
@@ -146,13 +101,6 @@ namespace UnitConverter
             Convert(CmToM, _converterService.CentimeterToMeter, "cm", "m");
 
             ShowSecondMenu(CmToM);
-        }
-
-        private void MToCm()
-        {
-            Convert(MToCm, _converterService.MeterToCentimeter, "m", "cm");
-
-            ShowSecondMenu(MToCm);
         }
 
         private void CmToMm()
@@ -181,6 +129,28 @@ namespace UnitConverter
             Convert(InToM, _converterService.InchToMeter, "in", "m");
 
             ShowSecondMenu(InToM);
+        }
+
+        private void Convert(Action currentMethod, Func<double, double> serviceMethod, string inputType, string outputType)
+        {
+            Console.WriteLine($"Please enter a number of {inputType} to be converted to {outputType}");
+            bool success = double.TryParse(Console.ReadLine(), out double input);
+            if (!success)
+            {
+                ShowNoValidNumberError();
+                currentMethod();
+            }
+
+            if (input < 0)
+            {
+                ShowNegativeNumberError();
+                currentMethod();
+            }
+
+            Func<double, double> convert = serviceMethod;
+            double output = convert(input);
+            Console.WriteLine($"{output} {outputType}");
+            _logging.WriteToLogFile($"{input} {inputType} to {output} {outputType}.");
         }
 
         private enum PostConversionChoice
@@ -222,6 +192,36 @@ namespace UnitConverter
                 ShowUserInputError();
             }
 
+            Console.Clear();
+        }
+
+        private void ShowNegativeNumberError()
+        {
+            string errorMessage = "Error: You entered a negative number. Please try again.";
+
+            Console.Clear();
+            Console.WriteLine($"{errorMessage} \n");
+            _logging.WriteToLogFile(errorMessage);
+        }
+
+        private void ShowNoValidNumberError()
+        {
+            string errorMessage = "Error: You did not enter a valid number to be converted. Please try again.";
+
+            Console.Clear();
+            Console.WriteLine($"{errorMessage} \n");
+            _logging.WriteToLogFile(errorMessage);
+        }
+
+        private void ShowUserInputError()
+        {
+            string errorMessage = "Error: Input was not recognized, please enter a correct number!";
+
+            Console.Clear();
+            _logging.WriteToLogFile(errorMessage);
+            Console.WriteLine(errorMessage +
+                "\nPress any key to return to the menu.");
+            Console.ReadKey();
             Console.Clear();
         }
         #endregion
