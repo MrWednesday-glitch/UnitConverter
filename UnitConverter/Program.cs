@@ -22,11 +22,11 @@ namespace UnitConverter
             Program program = new();
             while (true)
             {
-                program.MainMenu();
+                program.ShowMainMenu();
             }
         }
 
-        private void NegativeNumberError()
+        private void ShowNegativeNumberError()
         {
             string errorMessage = "Error: You entered a negative number. Please try again.";
 
@@ -35,7 +35,7 @@ namespace UnitConverter
             _logging.WriteToLogFile(errorMessage);
         }
 
-        private void NoValidNumberError()
+        private void ShowNoValidNumberError()
         {
             string errorMessage = "Error: You did not enter a valid number to be converted. Please try again.";
 
@@ -44,7 +44,7 @@ namespace UnitConverter
             _logging.WriteToLogFile(errorMessage);
         }
 
-        private void UserInputError()
+        private void ShowUserInputError()
         {
             string errorMessage = "Error: Input was not recognized, please enter a correct number!";
 
@@ -56,7 +56,7 @@ namespace UnitConverter
             Console.Clear();
         }
 
-        private void MainMenu()
+        private void ShowMainMenu()
         {
             Console.WriteLine("Welcome to this Unit Converter. " +
                 "\n\nPlease select an option by pressing the appropriate number and pressing enter afterwards: " +
@@ -97,13 +97,13 @@ namespace UnitConverter
                         Environment.Exit(0);
                         break;
                     default:
-                        UserInputError();
+                        ShowUserInputError();
                         break;
                 }
             }
             else
             {
-                UserInputError();
+                ShowUserInputError();
             }
         }
 
@@ -111,13 +111,13 @@ namespace UnitConverter
         {
             if (!success)
             {
-                NoValidNumberError();
+                ShowNoValidNumberError();
                 currentMethod();
             }
 
             if (input < 0)
             {
-                NegativeNumberError();
+                ShowNegativeNumberError();
                 currentMethod();
             }
 
@@ -134,7 +134,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} centimeter to {output}.");
 
-            SecondMenu(CmToM);
+            ShowSecondMenu(CmToM);
         }
 
         private void MToCm()
@@ -146,7 +146,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} meter to {output}.");
 
-            SecondMenu(MToCm);
+            ShowSecondMenu(MToCm);
         }
 
         private void CmToMm()
@@ -158,7 +158,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} centimeters to {output}.");
 
-            SecondMenu(CmToMm);
+            ShowSecondMenu(CmToMm);
         }
 
         private void MmToCm()
@@ -170,7 +170,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} millimeter to {output}.");
 
-            SecondMenu(MmToCm);
+            ShowSecondMenu(MmToCm);
         }
 
         private void MToIn()
@@ -182,7 +182,7 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} meter to {output}.");
 
-            SecondMenu(MToIn);
+            ShowSecondMenu(MToIn);
         }
 
         private void InToM()
@@ -194,10 +194,10 @@ namespace UnitConverter
             Console.WriteLine(output);
             _logging.WriteToLogFile($"{input} inches to {output}.");
 
-            SecondMenu(InToM);
+            ShowSecondMenu(InToM);
         }
 
-        private void SecondMenu(Action currentMethod)
+        private void ShowSecondMenu(Action currentMethod)
         {
             Console.WriteLine("\nPlease select any of the following options and press enter: " +
 "\n1. Recalculate a different number. " +
@@ -226,7 +226,7 @@ namespace UnitConverter
             }
             else
             {
-                UserInputError();
+                ShowUserInputError();
             }
 
             Console.Clear();
