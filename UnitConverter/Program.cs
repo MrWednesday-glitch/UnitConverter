@@ -119,8 +119,10 @@ namespace UnitConverter
             }
         }
 
-        private double Convert(bool success, double input, Action currentMethod, Func<double, double> serviceMethod)
+        private void Convert(Action currentMethod, Func<double, double> serviceMethod, string inputType, string outputType)
         {
+            Console.WriteLine($"Please enter a number of {inputType} to be converted to {outputType}");
+            bool success = double.TryParse(Console.ReadLine(), out double input);
             if (!success)
             {
                 ShowNoValidNumberError();
@@ -134,77 +136,49 @@ namespace UnitConverter
             }
 
             Func<double, double> convert = serviceMethod;
-            return convert(input);
+            double output = convert(input);
+            Console.WriteLine($"{output} {outputType}");
+            _logging.WriteToLogFile($"{input} {inputType} to {output} {outputType}.");
         }
 
         private void CmToM()
         {
-            Console.WriteLine("Please enter a number of centimeters to be converted to meters");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-
-            string output = $"{Convert(success, input, CmToM, _converterService.CentimeterToMeter)} meter";
-            Console.WriteLine(output);
-            _logging.WriteToLogFile($"{input} centimeter to {output}.");
+            Convert(CmToM, _converterService.CentimeterToMeter, "cm", "m");
 
             ShowSecondMenu(CmToM);
         }
 
         private void MToCm()
         {
-            Console.WriteLine("Please enter a number of meters to be converted to centimeter");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-
-            string output = $"{Convert(success, input, MToCm, _converterService.MeterToCentimeter)} centimeter";
-            Console.WriteLine(output);
-            _logging.WriteToLogFile($"{input} meter to {output}.");
+            Convert(MToCm, _converterService.MeterToCentimeter, "m", "cm");
 
             ShowSecondMenu(MToCm);
         }
 
         private void CmToMm()
         {
-            Console.WriteLine("Please enter a number of centimeters to be converted to millimeters");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-
-            string output = $"{Convert(success, input, CmToMm, _converterService.CentimeterToMillimeter)} millimeter";
-            Console.WriteLine(output);
-            _logging.WriteToLogFile($"{input} centimeters to {output}.");
+            Convert(CmToMm, _converterService.CentimeterToMillimeter, "cm", "mm");
 
             ShowSecondMenu(CmToMm);
         }
 
         private void MmToCm()
         {
-            Console.WriteLine("Please enter a number of millimeters to be converted to centimeters");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-
-            string output = $"{Convert(success, input, MmToCm, _converterService.MillimeterToCentimeter)} centimeter";
-            Console.WriteLine(output);
-            _logging.WriteToLogFile($"{input} millimeter to {output}.");
+            Convert(MmToCm, _converterService.MillimeterToCentimeter, "mm", "cm");
 
             ShowSecondMenu(MmToCm);
         }
 
         private void MToIn()
         {
-            Console.WriteLine("Please enter a number of meters to be converted to inches");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-
-            string output = $"{Convert(success, input, MToIn, _converterService.MeterToInch)} inch";
-            Console.WriteLine(output);
-            _logging.WriteToLogFile($"{input} meter to {output}.");
+            Convert(MToIn, _converterService.MeterToInch, "m", "in");
 
             ShowSecondMenu(MToIn);
         }
 
         private void InToM()
         {
-            Console.WriteLine("Please enter a number of inches to be converted to meters");
-            bool success = double.TryParse(Console.ReadLine(), out double input);
-
-            string output = $"{Convert(success, input, InToM, _converterService.InchToMeter)} meter";
-            Console.WriteLine(output);
-            _logging.WriteToLogFile($"{input} inches to {output}.");
+            Convert(InToM, _converterService.InchToMeter, "in", "m");
 
             ShowSecondMenu(InToM);
         }
