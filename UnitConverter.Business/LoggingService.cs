@@ -8,7 +8,7 @@ namespace UnitConverter.Business
 {
     public class LoggingService : ILoggingService
     {
-        private const string _connectionstring = @""; //Pretend that there is a dbo connection here, or enter your own
+        private const string _connectionstring = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MeterConvertor;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; //Pretend that there is a dbo connection here, or enter your own
         private readonly SqlConnection _connection;
 
         #region Constructors
@@ -26,13 +26,13 @@ namespace UnitConverter.Business
                 string date = DateTime.Now.ToShortDateString().ToString();
                 string time = DateTime.Now.ToLongTimeString().ToString();
 
-                string query = $"INSERT INTO dbo.Logs (Dates, Times, Msg) VALUES (@Dates, @Times, @Msg)";
+                string query = $"INSERT INTO dbo.Logs2 (Date, Time, Message) VALUES (@Date, @Time, @Message)";
 
                 using (SqlCommand command = new(query, _connection))
                 {
-                    command.Parameters.AddWithValue("@Dates", date);
-                    command.Parameters.AddWithValue("@Times", time);
-                    command.Parameters.AddWithValue("@Msg", message);
+                    command.Parameters.AddWithValue("@Date", date);
+                    command.Parameters.AddWithValue("@Time", time);
+                    command.Parameters.AddWithValue("@Message", message);
 
                     _connection.Open();
                     int result = command.ExecuteNonQuery();
@@ -56,7 +56,7 @@ namespace UnitConverter.Business
             string logFormat = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()} ==> ";
             string date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
 
-            StreamWriter sw = new(@$"C:\Users\itvadmin\Documents\programma's\Log{date}.txt", true); //Probably enter your own pathname to prevent crashes
+            StreamWriter sw = new(@$"C:\Users\itvadmin\source\repos\MrWednesday-glitch\UnitConverter\Log{date}.txt", true); //Probably enter your own pathname to prevent crashes
             try
             {
                 sw.WriteLine(logFormat + message);
