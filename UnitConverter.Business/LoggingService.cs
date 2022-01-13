@@ -55,8 +55,13 @@ namespace UnitConverter.Business
         {
             string logFormat = $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToLongTimeString()} ==> ";
             string date = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString();
+            string folderName = @"C:\Users\itvadmin\Documents\Logs\"; //Probably enter your own pathname to prevent crashes
+            if (!Directory.Exists(folderName))
+            {
+                Directory.CreateDirectory(folderName);
+            }
 
-            StreamWriter sw = new(@$"C:\Users\itvadmin\source\repos\MrWednesday-glitch\UnitConverter\Log{date}.txt", true); //Probably enter your own pathname to prevent crashes
+            StreamWriter sw = new(@$"{folderName}Log{date}.txt", true); 
             try
             {
                 sw.WriteLine(logFormat + message);
