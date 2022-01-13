@@ -39,11 +39,13 @@ namespace UnitConverter.Winforms
             if (!success)
             {
                 NoValidNumberError();
+                goto end;
             }
 
             if (input < 0)
             {
                 NegativeNumberError();
+                goto end;
             }
 
             Func<double, double> convert = serviceMethod;
@@ -52,6 +54,7 @@ namespace UnitConverter.Winforms
             label_Output.Text = output.ToString();
             label_InputType.Text = inputType;
             label_OutputType.Text = outputType;
+        end:;
         }
 
         private void button_MeterToCentimeter_Click(object sender, EventArgs e)

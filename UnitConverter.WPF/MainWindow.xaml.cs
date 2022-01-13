@@ -54,11 +54,13 @@ namespace UnitConverter.WPF
             if (!success)
             {
                 NoValidNumberError();
+                goto end;
             }
 
             if (input < 0)
             {
                 NegativeNumberError();
+                goto end;
             }
 
             Func<double, double> convert = serviceMethod;
@@ -67,6 +69,7 @@ namespace UnitConverter.WPF
             Output_Label.Content = output.ToString();
             InputType_Label.Content = inputType;
             OutputType_Label.Content = outputType;
+        end:;
         }
 
         private void Convert_Button_Click(object sender, RoutedEventArgs e)
